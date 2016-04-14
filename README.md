@@ -52,12 +52,12 @@ photoView.photoItemArray = photoItems.copy;
 }
 
 
-![展示页面](phtot/1.png)
-![展示页面](phtot/2.png)
-![展示页面](phtot/3.png)
-![展示页面](phtot/4.png)
-![展示页面](phtot/5.png)
-![展示页面](phtot/6.png)
-![展示页面](phtot/7.png)
-![展示页面](phtot/8.png)
+![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/1.png)
+![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/2.png)
+![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/3.png)
+![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/4.png)
+![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/5.png)
+![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/6.png)
+![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/7.png)
+![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/8.png)
 
