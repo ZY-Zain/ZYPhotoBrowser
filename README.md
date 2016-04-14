@@ -53,19 +53,76 @@ photoView.photoItemArray = photoItems.copy;
 ```
 
 
-![小图总览](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/1.png)
+小图总览
+<p align="left">
 
-![大图竖屏显示](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/2.png)
+	<img src="./photo/1.png" width=44%">
 
-![大图竖屏显示](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/3.png)
+</p>
 
-![GIF大图竖屏显示](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/4.png)
 
-![GIF大图横屏显示](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/5.png)
 
-![长图大图横屏显示](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/6.png)
+大图竖屏显示
+<p align="left">
 
-![长图大图横屏放大显示](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/7.png)
+	<img src="./photo/2.png" width=44%">
 
-![长图大图竖屏显示](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/8.png)
+</p>
+
+
+
+大图竖屏显示
+<p align="left">
+
+	<img src="./photo/3.png" width=44%">
+
+</p>
+
+
+
+长图大图竖屏显示
+<p align="left">
+
+	<img src="./photo/8.png" width=44%">
+
+</p>
+
+
+
+GIF大图竖屏显示
+<p align="left">
+
+	<img src="./photo/4.png" width=44%">
+
+</p>
+
+
+
+GIF大图横屏显示
+<p align="left">
+
+	<img src="./photo/5.png" width=44%">
+
+</p>
+
+
+
+长图大图横屏显示
+<p align="left">
+
+	<img src="./photo/6.png" width=44%">
+
+</p>
+
+
+
+长图大图横屏放大显示
+<p align="left">
+
+	<img src="./photo/7.png" width=44%">
+
+</p>
+
+
+
 
