@@ -52,12 +52,12 @@ photoView.photoItemArray = photoItems.copy;
 }
 
 
-![展示页面](phtot/1.jpg)
-![展示页面](phtot/2.jpg)
-![展示页面](phtot/3.jpg)
-![展示页面](phtot/4.jpg)
-![展示页面](phtot/5.jpg)
-![展示页面](phtot/6.jpg)
-![展示页面](phtot/7.jpg)
-![展示页面](phtot/8.jpg)
+![展示页面](phtot/1.png)
+![展示页面](phtot/2.png)
+![展示页面](phtot/3.png)
+![展示页面](phtot/4.png)
+![展示页面](phtot/5.png)
+![展示页面](phtot/6.png)
+![展示页面](phtot/7.png)
+![展示页面](phtot/8.png)
 
