@@ -18,8 +18,6 @@ Can support local image details information such as images in succession later
 
 
 
-
-
 快速接入/ Quick access
 
 - (void)viewDidLoad {
@@ -51,13 +49,20 @@ NSMutableArray *photoItems = [NSMutableArray array];
 photoView.photoItemArray = photoItems.copy;
 }
 
+<br/>
+![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/1.png)<br/>
 
-![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/1.png)
 ![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/2.png)
+
 ![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/3.png)
+
 ![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/4.png)
+
 ![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/5.png)
+
 ![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/6.png)
+
 ![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/7.png)
+
 ![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/8.png)
 
