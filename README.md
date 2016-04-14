@@ -12,6 +12,14 @@ Support GIF temporarily only support network images provide a URL can automatica
 Can support local image details information such as images in succession later
 
 
+
+
+
+
+
+
+
+
 快速接入/ Quick access
 
 - (void)viewDidLoad {
