@@ -50,3 +50,14 @@ NSMutableArray *photoItems = [NSMutableArray array];
     
 photoView.photoItemArray = photoItems.copy;
 }
+
+
+![展示页面](phtot/1.jpg)
+![展示页面](phtot/2.jpg)
+![展示页面](phtot/3.jpg)
+![展示页面](phtot/4.jpg)
+![展示页面](phtot/5.jpg)
+![展示页面](phtot/6.jpg)
+![展示页面](phtot/7.jpg)
+![展示页面](phtot/8.jpg)
+
