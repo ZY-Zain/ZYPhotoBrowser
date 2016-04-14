@@ -10,9 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import "ZYPhotoBrowserView.h"
 #import "ZYPhotoCollectionView.h"
-//第三方
 #import "Masonry.h"
-//统一配置文件
 #import "ZYPhotoBrowserConfig.h"
 
 @implementation ZYPhotoBrowser 
@@ -24,8 +22,6 @@
     UIActivityIndicatorView *_indicatorView;
     UIView *_contentView;
     UIPageControl *_pageControl;
-    
-    //保存图片弹窗选择器
     UIAlertView *_savePhotoAlertView;
 }
 
@@ -38,12 +34,9 @@
     return self;
 }
 
-//当视图移动完成后调用
 - (void)didMoveToSuperview
 {
-    
     [self setupScrollView];
-    
     [self setupToolbars];
 }
 
@@ -54,7 +47,6 @@
 
 - (void)setupToolbars
 {
-    // 1. 序标
     UILabel *indexLabel = [[UILabel alloc] init];
     indexLabel.textAlignment = NSTextAlignmentCenter;
     indexLabel.textColor = [UIColor whiteColor];
@@ -76,10 +68,7 @@
     page.numberOfPages = self.imageCount;
     [self addSubview:page];
     _pageControl = page;
-    //如果利用约束来控制横竖屏的切换，并不能直接取父控件来做参照物，只能根据bounds.size来计算 等同于不实用约束 直接计算frame，只不过结果用约束来固定。  并且在LayoutSubviews方法中 更新此约束值  因为当屏幕旋转后 系统会调用layoutSubviews的方法
     [_pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
-        //        make.left.right.mas_equalTo(0);
-        //        make.bottom.mas_equalTo(self.mas_bottom).offset(-30);
         make.left.mas_equalTo(self.bounds.size.width * 0.5 - _pageControl.frame.size.width * 0.5);
         make.top.mas_equalTo(self.bounds.size.height - 30 - 37);
     }];
@@ -88,7 +77,6 @@
         _pageControl.hidden = YES;
     }
     
-    //本来这里可以直接根据宏定义来判断是否展示哪一个显示控件，但因为宏定义是预先指令 在编译前就已经知道结果 导致报警告分支中有代码永远不会被执行  所以只能采用一个变量来代替宏 做判断
     BOOL showNumPage = ZYPageType == ZYNumPageType ? YES : NO;
     if (showNumPage) {
         [_pageControl removeFromSuperview];
@@ -98,8 +86,6 @@
         _indexLabel = nil;
     }
     
-    
-    // 2.保存按钮   这里我添加了一个长按弹框手势来进行保存图片  所以保存按钮就忽略了
 //    UIButton *saveButton = [[UIButton alloc] init];
 //    [saveButton setTitle:@"保存" forState:UIControlStateNormal];
 //    [saveButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -166,14 +152,12 @@
         ZYPhotoBrowserView *view = [[ZYPhotoBrowserView alloc] init];
         view.imageview.tag = i;
         
-        //处理单击
         __weak __typeof(self)weakSelf = self;
         view.singleTapBlock = ^(UITapGestureRecognizer *recognizer){
             __strong __typeof(weakSelf)strongSelf = weakSelf;
             [strongSelf photoClick:recognizer];
         };
-        
-        //处理长按
+
         view.longTabBlock = ^(UILongPressGestureRecognizer *recognizer) {
             __strong __typeof(weakSelf)strongSelf = weakSelf;
             [strongSelf photoLongClick:recognizer];
@@ -185,7 +169,6 @@
     
 }
 
-// 加载图片
 - (void)setupImageOfImageViewForIndex:(NSInteger)index
 {
     ZYPhotoBrowserView *view = _scrollView.subviews[index];
@@ -204,10 +187,8 @@
     [super layoutSubviews];
     
     CGRect rect = self.bounds;
-//    CGRect rect = [UIScreen mainScreen].bounds;
     rect.size.width += ZYPhotoBrowserImageViewMargin * 2;
     _scrollView.bounds = rect;
-//    _scrollView.center = self.center;
     _scrollView.center = CGPointMake(self.bounds.size.width *0.5, self.bounds.size.height *0.5);
     
     CGFloat y = 0;
@@ -233,8 +214,6 @@
     
     if (_pageControl) {
         [_pageControl mas_updateConstraints:^(MASConstraintMaker *make) {
-            //        make.left.right.mas_equalTo(0);
-            //        make.bottom.mas_equalTo(self.mas_bottom).offset(-30);
             make.left.mas_equalTo(self.bounds.size.width * 0.5 - _pageControl.frame.size.width * 0.5);
             make.top.mas_equalTo(self.bounds.size.height - 30 - 37);
         }];
@@ -256,9 +235,8 @@
     
     [_contentView addSubview:self];
     
-    window.windowLevel = UIWindowLevelStatusBar+10.0f;//隐藏状态栏
+    window.windowLevel = UIWindowLevelStatusBar+10.0f;
     
-    //就是一个单线程方法 延迟时间 调用方法 并且在方法中注册通知 通知是屏幕旋转时调用(无需打开手机的屏幕旋转)
     [self performSelector:@selector(onDeviceOrientationChangeWithObserver) withObject:nil afterDelay:ZYPhotoBrowserShowImageAnimationDuration + 0.2];
     
     [window addSubview:_contentView];
@@ -266,27 +244,22 @@
 - (void)onDeviceOrientationChangeWithObserver
 {
     [self onDeviceOrientationChange];
-    //注册通知 当手机旋转时调用(即使手机屏幕旋转关闭都可以正常触发此通知)
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDeviceOrientationChange) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
-/**
- *  手机屏幕发生旋转时 通知调用的方法
- */
 -(void)onDeviceOrientationChange
 {
     if (!ZYISShouldLandscape) {
-        //不支持横屏 则直接return
         return;
     }
-    //支持横屏
+
     ZYPhotoBrowserView *currentView = _scrollView.subviews[self.currentImageIndex];
-    [currentView.scrollview setZoomScale:1.0 animated:YES];//还原
+    [currentView.scrollview setZoomScale:1.0 animated:YES];
     UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
     
     CGRect screenBounds = [UIScreen mainScreen].bounds;
 
-    if (UIDeviceOrientationIsLandscape(orientation)) {//屏幕左旋转 或者 右旋转  利用位移选项来同时选择两种状态
+    if (UIDeviceOrientationIsLandscape(orientation)) {
         [UIView animateWithDuration:ZYAnimationDuration delay:0.0f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
             [[UIApplication sharedApplication] setStatusBarOrientation:(UIInterfaceOrientation)orientation];
             self.transform = (orientation==UIDeviceOrientationLandscapeRight)?CGAffineTransformMakeRotation(M_PI*1.5):CGAffineTransformMakeRotation(M_PI/2);
@@ -294,7 +267,7 @@
             [self setNeedsLayout];
             [self layoutIfNeeded];
         } completion:nil];
-    }else if (orientation==UIDeviceOrientationPortrait){//屏幕垂直，没有旋转
+    }else if (orientation==UIDeviceOrientationPortrait){
         [UIView animateWithDuration:ZYAnimationDuration delay:0.0f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
             [[UIApplication sharedApplication] setStatusBarOrientation:(UIInterfaceOrientation)orientation];
             self.transform = (orientation==UIDeviceOrientationPortrait)?CGAffineTransformIdentity:CGAffineTransformMakeRotation(M_PI);
@@ -308,7 +281,6 @@
 #pragma mark - 开始大图模式
 - (void)showFirstImage
 {
-    //获取图片的父控件  然后根据点击cell的下标 取出对应的cell  再取出cell此时的frame 进行坐标系转换  然后通过转换后的坐标系进行一个将原照片(此时是小图)先放大至全屏 放大的同时开始加载大图
     ZYPhotoCollectionView * collectionView = (ZYPhotoCollectionView *)self.sourceImagesContainerView;
     UICollectionViewCell * cell = [collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:self.currentImageIndex inSection:0]];
     
@@ -328,21 +300,18 @@
     CGFloat placeHolderH = (placeImageSizeH * ZYAPPWidth)/placeImageSizeW;
     if (placeHolderH <= ZYAppHeight) {
         targetTemp = CGRectMake(0, (ZYAppHeight - placeHolderH) * 0.5 , ZYAPPWidth, placeHolderH);
-    } else {//图片高度>屏幕高度
+    } else {
         targetTemp = CGRectMake(0, 0, ZYAPPWidth, placeHolderH);
     }
     
-    //先隐藏scrollview
     _scrollView.hidden = YES;
     _indexLabel.hidden = YES;
     _saveButton.hidden = YES;
     _pageControl.hidden = YES;
 
     [UIView animateWithDuration:ZYPhotoBrowserShowImageAnimationDuration animations:^{
-        //将点击的临时imageview动画放大到和目标imageview一样大
         tempView.frame = targetTemp;
     } completion:^(BOOL finished) {
-        //动画完成后，删除临时imageview，让目标imageview显示
         _hasShowedFistView = YES;
         [tempView removeFromSuperview];
         _scrollView.hidden = NO;
@@ -374,18 +343,10 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     int index = (scrollView.contentOffset.x + _scrollView.bounds.size.width * 0.5) / _scrollView.bounds.size.width;
-//    int imageIndex = (scrollView.contentOffset.x + _scrollView.bounds.size.width * 0.9) / _scrollView.bounds.size.width;
-//    if (imageIndex >= self.imageCount - 1) {
-//        imageIndex = (int)self.imageCount - 1;
-//    }
-//    if (imageIndex <= 0) {
-//        imageIndex= 0;
-//    }
     _indexLabel.text = [NSString stringWithFormat:@"%d/%ld", index + 1, (long)self.imageCount];
     
     _pageControl.currentPage = index;
     
-//    NSLog(@"%i",imageIndex);
     long left = index - 1;
     long right = index + 1;
     left = left>0?left : 0;
@@ -394,17 +355,12 @@
     for (long i = left; i < right; i++) {
          [self setupImageOfImageViewForIndex:i];
     }
-    
-//    [self setupImageOfImageViewForIndex:imageIndex];
 }
 
-//scrollview结束滚动调用
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     int autualIndex = scrollView.contentOffset.x  / _scrollView.bounds.size.width;
-    //设置当前下标
     self.currentImageIndex = autualIndex;
-    //将不是当前imageview的缩放全部还原 (这个方法有些冗余，后期可以改进)
     for (ZYPhotoBrowserView *view in _scrollView.subviews) {
         if (view.imageview.tag != autualIndex) {
                 view.scrollview.zoomScale = 1.0;
@@ -420,12 +376,12 @@
     CGPoint touchPoint = [recognizer locationInView:self];
     if (view.scrollview.zoomScale <= 1.0) {
     
-    CGFloat scaleX = touchPoint.x + view.scrollview.contentOffset.x;//需要放大的图片的X点
-    CGFloat sacleY = touchPoint.y + view.scrollview.contentOffset.y;//需要放大的图片的Y点
+    CGFloat scaleX = touchPoint.x + view.scrollview.contentOffset.x;
+    CGFloat sacleY = touchPoint.y + view.scrollview.contentOffset.y;
     [view.scrollview zoomToRect:CGRectMake(scaleX, sacleY, 10, 10) animated:YES];
         
     } else {
-        [view.scrollview setZoomScale:1.0 animated:YES]; //还原
+        [view.scrollview setZoomScale:1.0 animated:YES];
     }
     
 }
@@ -434,7 +390,7 @@
 - (void)photoClick:(UITapGestureRecognizer *)recognizer
 {
     ZYPhotoBrowserView *currentView = _scrollView.subviews[self.currentImageIndex];
-    [currentView.scrollview setZoomScale:1.0 animated:YES];//还原
+    [currentView.scrollview setZoomScale:1.0 animated:YES];
     _indexLabel.hidden = YES;
     _saveButton.hidden = YES;
     _pageControl.hidden = YES;
@@ -458,24 +414,17 @@
 #pragma mark - 长按
 -(void)photoLongClick:(UILongPressGestureRecognizer *)recognizer {
         if (_savePhotoAlertView != nil) {
-            //已经弹创了
             return;
         }
-    
-        NSLog(@"点击了长按");
         _savePhotoAlertView = [[UIAlertView alloc] initWithTitle:@"保存图片" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"保存", nil];
         [_savePhotoAlertView show];
 }
 
-//点击确定按钮后的回调方法
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
-//        NSLog(@"取消");
     }else if (buttonIndex == 1){
-//        NSLog(@"保存");
         [self saveImage];
     }
-    //置空弹窗器
     _savePhotoAlertView = nil;
 }
 
@@ -485,8 +434,7 @@
 {
     ZYPhotoBrowserView *view = (ZYPhotoBrowserView *)recognizer.view;
     UIImageView *currentImageView = view.imageview;
-    
-    //获取图片的父控件  然后根据点击cell的下标 取出对应的cell  再取出cell此时的frame 进行坐标系转换  然后通过转换后的坐标系进行一个将原照片(此时是小图)先放大至全屏 放大的同时开始加载大图
+
     ZYPhotoCollectionView * collectionView = (ZYPhotoCollectionView *)self.sourceImagesContainerView;
     UICollectionViewCell * cell = [collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:self.currentImageIndex inSection:0]];
 
@@ -498,7 +446,7 @@
     CGFloat tempImageSizeW = tempImageView.image.size.width;
     CGFloat tempImageViewH = (tempImageSizeH * ZYAPPWidth)/tempImageSizeW;
     
-    if (tempImageViewH < ZYAppHeight) {//图片高度<屏幕高度
+    if (tempImageViewH < ZYAppHeight) {
         tempImageView.frame = CGRectMake(0, (ZYAppHeight - tempImageViewH)*0.5, ZYAPPWidth, tempImageViewH);
     } else {
         tempImageView.frame = CGRectMake(0, 0, ZYAPPWidth, tempImageViewH);
@@ -511,7 +459,7 @@
     _pageControl.hidden = YES;
     self.backgroundColor = [UIColor clearColor];
     _contentView.backgroundColor = [UIColor clearColor];
-    self.window.windowLevel = UIWindowLevelNormal;//显示状态栏
+    self.window.windowLevel = UIWindowLevelNormal;
     [UIView animateWithDuration:ZYPhotoBrowserHideImageAnimationDuration animations:^{
         tempImageView.frame = targetTemp;
     } completion:^(BOOL finished) {

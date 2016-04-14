@@ -335,9 +335,9 @@
 			isa = PBXGroup;
 			children = (
 				354E7B841CBF3F2300D9F030 /* placeholderImage.png */,
+				354E7B871CBF3F2300D9F030 /* ZYPhotoBrowserConfig.h */,
 				354E7B851CBF3F2300D9F030 /* ZYPhotoBrowser.h */,
 				354E7B861CBF3F2300D9F030 /* ZYPhotoBrowser.m */,
-				354E7B871CBF3F2300D9F030 /* ZYPhotoBrowserConfig.h */,
 				354E7B881CBF3F2300D9F030 /* ZYPhotoBrowserView.h */,
 				354E7B891CBF3F2300D9F030 /* ZYPhotoBrowserView.m */,
 				354E7B8A1CBF3F2300D9F030 /* ZYPhotoCollectionView.h */,
