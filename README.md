@@ -24,8 +24,7 @@ Can support local image details information such as images in succession later
 
 快速接入/ Quick access
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+
     
 //展示控件
 
@@ -51,7 +50,7 @@ NSMutableArray *photoItems = [NSMutableArray array];
  //给图片模型给展示控件 自动进行展示
     
 photoView.photoItemArray = photoItems.copy;
-}
+
 
 
 ![小图总览](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/1.png)
