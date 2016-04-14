@@ -1,4 +1,4 @@
-# ZYPhotoBrowser
+ ZYPhotoBrowser
 相册浏览器,10句代码即可完成接入   
 支持GIF 暂时只支持网络图片  提供一个URL 即可自动完成所有操作。 布局自动根据屏幕大小进行布局  支持横屏浏览
 
@@ -24,8 +24,8 @@ Can support local image details information such as images in succession later
 
 快速接入/ Quick access
 
-
-    
+``` 
+ 
 //展示控件
 
 ZYPhotoCollectionView *photoView = [[ZYPhotoCollectionView alloc] init];
@@ -50,7 +50,7 @@ NSMutableArray *photoItems = [NSMutableArray array];
  //给图片模型给展示控件 自动进行展示
     
 photoView.photoItemArray = photoItems.copy;
-
+```
 
 
 ![小图总览](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/1.png)
