@@ -16,12 +16,17 @@ Can support local image details information such as images in succession later
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //展示控件
-    ZYPhotoCollectionView *photoView = [[ZYPhotoCollectionView alloc] init];
-    //图片模型数组
-    NSMutableArray *photoItems = [NSMutableArray array];
     
-    //便利url数组 取出图片url 转换成模型
+//展示控件
+
+ZYPhotoCollectionView *photoView = [[ZYPhotoCollectionView alloc] init];
+    
+//图片模型数组
+
+NSMutableArray *photoItems = [NSMutableArray array];
+    
+//便利url数组 取出图片url 转换成模型
+
     [self.photoURLs enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         ZYPhotoItem *photoItem = [[ZYPhotoItem alloc] init];
         photoItem.smallImageURL = obj[@"smallImageURL"];
@@ -30,8 +35,10 @@ Can support local image details information such as images in succession later
     }];
     
     photoView.frame = self.view.bounds;
+    
     [self.view addSubview:photoView];
     
-    //给图片模型给展示控件 自动进行展示
-    photoView.photoItemArray = photoItems.copy;
+ //给图片模型给展示控件 自动进行展示
+    
+photoView.photoItemArray = photoItems.copy;
 }
