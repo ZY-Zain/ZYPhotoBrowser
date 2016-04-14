@@ -1,6 +1,7 @@
 # ZYPhotoBrowser
 相册浏览器,10句代码即可完成接入   
 支持GIF 暂时只支持网络图片  提供一个URL 即可自动完成所有操作。 布局自动根据屏幕大小进行布局  支持横屏浏览
+整个模块以View控件来完成  所以只需要在你展示的地方 addSubview 即可  无需管理控制器，方便简洁
 
 以后会陆续支持 本地图片  图片详情信息等
 
@@ -8,6 +9,7 @@
 
 Photo browser, 10 other code can complete access
 Support GIF temporarily only support network images provide a URL can automatically complete all operations.Layout of automatic layout on the screen size Support for landscape view
+To complete the whole module with the View controls So you just need to addSubview where you show Without management controller, convenient and concise
 
 Can support local image details information such as images in succession later
 
