@@ -49,20 +49,20 @@ NSMutableArray *photoItems = [NSMutableArray array];
 photoView.photoItemArray = photoItems.copy;
 }
 
-<br/>
-![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/1.png)<br/>
 
-![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/2.png)
+![小图总览](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/1.png)
 
-![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/3.png)
+![大图竖屏显示](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/2.png)
 
-![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/4.png)
+![大图竖屏显示](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/3.png)
 
-![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/5.png)
+![GIF大图竖屏显示](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/4.png)
 
-![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/6.png)
+![GIF大图横屏显示](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/5.png)
 
-![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/7.png)
+![长图大图横屏显示](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/6.png)
 
-![image](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/8.png)
+![长图大图横屏放大显示](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/7.png)
+
+![长图大图竖屏显示](http://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/8.png)
 
