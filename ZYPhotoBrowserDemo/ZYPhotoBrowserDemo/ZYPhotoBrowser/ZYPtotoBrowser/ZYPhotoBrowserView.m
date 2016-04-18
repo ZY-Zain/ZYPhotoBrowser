@@ -1,11 +1,10 @@
 //
-//  HZPhotoBrowserView.m
-//  HZPhotoBrowser
+//  ZYPhotoBrowserView.m
+//  jinxin
 //
-//  Created by huangzhenyu on 15/5/7.
-//  Copyright (c) 2015年 GSD. All rights reserved.
+//  Created by ZhiYong_Huang on 16/4/10.
+//  Copyright © 2016年 ZhiYong_Huang. All rights reserved.
 //
-
 #import "ZYPhotoBrowserView.h"
 #import "ZYWaitingView.h"
 #import "UIImageView+WebCache.h"

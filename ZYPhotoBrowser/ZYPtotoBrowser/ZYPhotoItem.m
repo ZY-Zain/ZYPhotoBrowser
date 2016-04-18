@@ -1,9 +1,9 @@
 //
-//  HZPhotoItem.m
-//  HZPhotoBrowser
+//  ZYPhotoItem.m
+//  jinxin
 //
-//  Created by aier on 15-2-4.
-//  Copyright (c) 2015年 GSD. All rights reserved.
+//  Created by ZhiYong_Huang on 16-4-10.
+//  Copyright © 2016年 ZhiYong_Huang. All rights reserved.
 //
 
 #import "ZYPhotoItem.h"
