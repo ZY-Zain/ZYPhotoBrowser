@@ -26,6 +26,7 @@
         self.dataSource = self;
         self.delegate = self;
         self.backgroundColor = ZYSmallPhotoBackgrounColor;
+        self.scrollEnabled = NO;
     }
     return self;
 }
@@ -49,20 +50,24 @@
         w = 0.0;
     } else if (imageCount == 1) {
         w = (screenWidth - ZYPhotoGroupImageMargin * 2) * 0.5;
+        self.layout.minimumLineSpacing = 0;
+        self.layout.minimumInteritemSpacing = 0;
     } else if (imageCount == 2) {
         w = (screenWidth - ZYPhotoGroupImageMargin * 3) *0.5;
+        self.layout.minimumLineSpacing = ZYPhotoGroupImageMargin;
+        self.layout.minimumInteritemSpacing = ZYPhotoGroupImageMargin;
     } else {
         w = (screenWidth - ZYPhotoGroupImageMargin * 4) /3;
+        self.layout.minimumLineSpacing = ZYPhotoGroupImageMargin;
+        self.layout.minimumInteritemSpacing = ZYPhotoGroupImageMargin;
     }
     h = w;
     
     self.layout.itemSize = CGSizeMake(w, h);
-    self.layout.minimumLineSpacing = ZYPhotoGroupImageMargin;
-    self.layout.minimumInteritemSpacing = ZYPhotoGroupImageMargin;
     
     CGFloat height = ZYPhotoEdgeInsets + totalRowCount * (ZYPhotoGroupImageMargin + h);
     
-    [self mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.top.mas_equalTo(ZYPhotoEdgeInsets);
         make.right.mas_equalTo(-ZYPhotoEdgeInsets);
         make.height.mas_equalTo(height);
