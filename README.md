@@ -83,7 +83,7 @@ photoView.photoItemArray = photoItems.copy;
 长图大图竖屏显示
 <p align="left">
 
-	<img src="./photo/8.png" width=44%">
+	<img src="./photo/9.png" width=44%">
 
 </p>
 
