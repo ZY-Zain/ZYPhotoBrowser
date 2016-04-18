@@ -28,7 +28,6 @@
 {
     if (self = [super initWithFrame:frame]) {
         [self addSubview:self.scrollview];
-        //添加单双击长按事件
         [self addGestureRecognizer:self.doubleTap];
         [self addGestureRecognizer:self.singleTap];
         [self addGestureRecognizer:self.longTap];
@@ -75,7 +74,6 @@
         _singleTap.numberOfTapsRequired = 1;
         _singleTap.numberOfTouchesRequired = 1;
         _singleTap.delaysTouchesBegan = YES;
-        //只能有一个手势存在   doubleTap双击手势识别失败 才判断此次是否singleTap单击
         [_singleTap requireGestureRecognizerToFail:self.doubleTap];
     }
     return _singleTap;
@@ -91,19 +89,18 @@
 #pragma mark 双击
 - (void)handleDoubleTap:(UITapGestureRecognizer *)recognizer
 {
-    //图片加载完之后才能响应双击放大
     if (!self.hasLoadedImage) {
         return;
     }
     CGPoint touchPoint = [recognizer locationInView:self];
     if (self.scrollview.zoomScale <= 1.0) {
         
-        CGFloat scaleX = touchPoint.x + self.scrollview.contentOffset.x;//需要放大的图片的X点
-        CGFloat sacleY = touchPoint.y + self.scrollview.contentOffset.y;//需要放大的图片的Y点
+        CGFloat scaleX = touchPoint.x + self.scrollview.contentOffset.x;
+        CGFloat sacleY = touchPoint.y + self.scrollview.contentOffset.y;
         [self.scrollview zoomToRect:CGRectMake(scaleX, sacleY, 10, 10) animated:YES];
         
     } else {
-        [self.scrollview setZoomScale:1.0 animated:YES]; //还原
+        [self.scrollview setZoomScale:1.0 animated:YES];
     }
 }
 #pragma mark 单击
@@ -133,14 +130,12 @@
     }
     _imageUrl = url;
     _placeHolderImage = placeholder;
-    //添加进度指示器
     ZYWaitingView *waitingView = [[ZYWaitingView alloc] init];
     waitingView.mode = ZYWaitingViewProgressMode;
     waitingView.center = CGPointMake(ZYAPPWidth * 0.5, ZYAppHeight * 0.5);
     self.waitingView = waitingView;
     [self addSubview:waitingView];
     
-    //HZWebImage加载图片
     __weak __typeof(self)weakSelf = self;
     [_imageview sd_setImageWithURL:url placeholderImage:placeholder options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
@@ -151,8 +146,6 @@
         [_waitingView removeFromSuperview];
         
         if (error) {
-            //图片加载失败的处理，此处可以自定义各种操作（...）
-            
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             strongSelf.reloadButton = button;
             button.layer.cornerRadius = 2;
@@ -168,7 +161,7 @@
             [self addSubview:button];
             return;
         }
-        strongSelf.hasLoadedImage = YES;//图片加载成功
+        strongSelf.hasLoadedImage = YES;
     }];
 }
 
@@ -190,19 +183,18 @@
 {
     CGRect frame = self.scrollview.frame;
     if (self.imageview.image) {
-        CGSize imageSize = self.imageview.image.size;//获得图片的size
+        CGSize imageSize = self.imageview.image.size;
         CGRect imageFrame = CGRectMake(0, 0, imageSize.width, imageSize.height);
-        if (ZYIsFullWidthForLandScape) {//图片宽度始终==屏幕宽度(新浪微博就是这种效果)
+        if (ZYIsFullWidthForLandScape) {
             CGFloat ratio = frame.size.width/imageFrame.size.width;
             imageFrame.size.height = imageFrame.size.height*ratio;
             imageFrame.size.width = frame.size.width;
         } else{
             if (frame.size.width<=frame.size.height) {
-                //竖屏时候
                 CGFloat ratio = frame.size.width/imageFrame.size.width;
                 imageFrame.size.height = imageFrame.size.height*ratio;
                 imageFrame.size.width = frame.size.width;
-            }else{ //横屏的时候
+            }else{
                 CGFloat ratio = frame.size.height/imageFrame.size.height;
                 imageFrame.size.width = imageFrame.size.width*ratio;
                 imageFrame.size.height = frame.size.height;
@@ -210,25 +202,18 @@
         }
         
         self.imageview.frame = imageFrame;
-//        NSLog(@"%@",NSStringFromCGRect(_scrollview.frame));
-//        NSLog(@"%@",NSStringFromCGRect(self.imageview.frame));
-//        self.scrollview.frame = self.imageview.frame;
         self.scrollview.contentSize = self.imageview.frame.size;
         self.imageview.center = [self centerOfScrollViewContent:self.scrollview];
-        
-        //根据图片大小找到最大缩放等级，保证最大缩放时候，不会有黑边
+
         CGFloat maxScale = frame.size.height/imageFrame.size.height;
         maxScale = frame.size.width/imageFrame.size.width>maxScale?frame.size.width/imageFrame.size.width:maxScale;
-        //超过了设置的最大的才算数
         maxScale = maxScale>ZYMaxZoomScale?maxScale:ZYMaxZoomScale;
-        //初始化
         self.scrollview.minimumZoomScale = ZYMinZoomScale;
         self.scrollview.maximumZoomScale = maxScale;
         self.scrollview.zoomScale = 1.0f;
     }else{
         frame.origin = CGPointZero;
         self.imageview.frame = frame;
-        //重置内容大小
         self.scrollview.contentSize = self.imageview.frame.size;
     }
     self.scrollview.contentOffset = CGPointZero;
@@ -252,10 +237,8 @@
     return self.imageview;
 }
 
-- (void)scrollViewDidZoom:(UIScrollView *)scrollView //这里是缩放进行时调整
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView
 {
     self.imageview.center = [self centerOfScrollViewContent:scrollView];
-
 }
-
 @end

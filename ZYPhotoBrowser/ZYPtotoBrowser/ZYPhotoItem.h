@@ -11,7 +11,6 @@
 @interface ZYPhotoItem : NSObject
 
 @property (nonatomic, copy) NSString *smallImageURL;
-
 @property (nonatomic, copy) NSString *bigImageURL;
 
 @end

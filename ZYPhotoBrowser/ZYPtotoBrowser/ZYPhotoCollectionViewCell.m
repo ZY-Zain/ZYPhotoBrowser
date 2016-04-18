@@ -15,9 +15,6 @@
 @interface ZYPhotoCollectionViewCell ()
 
 @property(nonatomic, strong)UIImageView *imageView;
-/**
- *  GIF图的独特标识
- */
 @property(nonatomic, strong)UILabel *GIFLable;
 
 @end
@@ -29,10 +26,8 @@
 -(void)setPhotoItem:(ZYPhotoItem *)photoItem {
     _photoItem = photoItem;
     if ([photoItem.bigImageURL rangeOfString:@".gif"].location != NSNotFound) {
-        //此次的是GIF图
         self.GIFLable.hidden = NO;
     } else {
-        //非GIF图
         self.GIFLable.hidden = YES;
     }
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:photoItem.smallImageURL] placeholderImage:ZYPlaceholderImage];
@@ -58,8 +53,6 @@
         _GIFLable.text = @"GIF";
         _GIFLable.textColor = [UIColor whiteColor];
         _GIFLable.font = [UIFont systemFontOfSize:14.0];
-//        _GIFLable.layer.borderWidth = 1;
-//        _GIFLable.layer.borderColor = [UIColor whiteColor].CGColor;
         [self addSubview:_GIFLable];
         [_GIFLable mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.bottom.mas_equalTo(0);

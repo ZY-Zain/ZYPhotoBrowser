@@ -16,7 +16,7 @@
     if (self) {
         self.backgroundColor = ZYWaitingViewBackgroundColor;
         self.clipsToBounds = YES;
-        self.mode = ZYWaitingViewModeLoopDiagram;//默认用空心的 之后会覆盖用户选择的样式
+        self.mode = ZYWaitingViewModeLoopDiagram;
     }
     return self;
 }
@@ -34,7 +34,6 @@
 
 - (void)setFrame:(CGRect)frame
 {
-    //设置背景图为圆
     frame.size.width = 50;
     frame.size.height = 50;
     self.layer.cornerRadius = 25;
