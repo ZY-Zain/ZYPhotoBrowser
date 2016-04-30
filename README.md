@@ -17,9 +17,13 @@ Can support local image details information such as images in succession later
 
 
 
+报错解决：
+如果拖入此框架后  出现  error: linker command failed with exit code 1 (use -v to see invocation)  这种报错  只是第三方框架重复导入 而造成的编译错误。  因为此photoBrowser使用了 Masonry和SDWebImage 这两个框架，所以我的框架包里面也包含了这两个第三方 刚好你程序中也自己拖入了这两个框架，此时就会重复导入，造成编译错误，仅需随便删除多了的三方框架即可，可以删除这个photoBrowser里面的这两个第三方，也可以删除自己程序中的那个。总之，整个程序中只能拖入一个Masonry和SDWebImage，已经拖入了的程序 就不需要再拖入photoBrowser里面的Masonry和SDWebImage.
+而作者近段时间内没太多空余时间去将这两个框架抽取分离出来，所以暂时提供了这么一个愚蠢的方案来供大家使用。
 
-
-
+Error:
+If appear   error: linker command failed with exit code 1 (use -v to see invocation)    this kind of error Just repeat import third-party frameworks The compiler error caused.Because the photoBrowser with Masonry and SDWebImage the two frameworks, so I am inside the package also includes the framework of the two third party you just also himself into the two frameworks in the program, will repeat the import at this time, cause a compiler error, only need to delete the tripartite framework, can remove the photoBrowser inside the two third party, the can also delete their program.In a word, the whole program can only be dragged into a Masonry and SDWebImage, already into the program Don't need to be dragged into photoBrowser Masonry and SDWebImage inside.
+And the author in recent period of time not too much free time to go to isolate the two frameworks extraction, so temporary provides such a stupid plan for use by the people.
 
 
 快速接入/ Quick access
@@ -30,11 +34,11 @@ Can support local image details information such as images in succession later
 
 ZYPhotoCollectionView *photoView = [[ZYPhotoCollectionView alloc] init];
     
-//图片模型数组
+//图片数组模型
 
 NSMutableArray *photoItems = [NSMutableArray array];
     
-//便利url数组 取出图片url 转换成模型
+//便利图片url数组 取出图片url 转换成模型 (图片url数据以字典形式提供过来)
 
     [self.photoURLs enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         ZYPhotoItem *photoItem = [[ZYPhotoItem alloc] init];
