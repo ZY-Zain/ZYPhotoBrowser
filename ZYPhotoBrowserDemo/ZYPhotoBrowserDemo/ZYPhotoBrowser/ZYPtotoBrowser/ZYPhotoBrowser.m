@@ -1,9 +1,9 @@
 //
-//  ZYPhotoBrowser.m
-//  jinxin
+//  HZPhotoBrowser.m
+//  photobrowser
 //
-//  Created by ZhiYong_Huang on 16/4/10.
-//  Copyright © 2016年 ZhiYong_Huang. All rights reserved.
+//  Created by aier on 15-2-3.
+//  Copyright (c) 2015年 aier. All rights reserved.
 //
 
 #import "ZYPhotoBrowser.h"
