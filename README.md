@@ -33,7 +33,12 @@ If your original program, and did not use these third party, then you only need 
 <br>
 <br>
 <br>
-
+如果感觉对你有帮助，记得点一下星，你的点星是我更新更多第三方的动力。谢谢!
+<br>
+If it feels good for you, remember to click on the stars, and your star is my power to update more third parties. Thank you!
+<br>
+<br>
+<br>
 ##快速接入/Quick access
 ----
 
