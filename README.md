@@ -7,6 +7,7 @@
 支持长按保存图片到相册,支持横屏查看图片，查看长图。点击图片时的放大、缩小都做了动画效果。<br>
 布局自动根据屏幕大小进行布局  支持横屏浏览<br>
 整个模块以CollectionView控件来完成 只需要在你展示的地方 addSubview 即可  无需管理控制器，方便简洁<br>
+公开了一个config.h配置头文件，很多可以修改的样式、数据都可以直接在这里修改，无需深入代码来做修改。<br>
 以后会陆续支持 本地图片 图片详情信息等<br>
 <br>
 ##Introduction:
@@ -16,6 +17,7 @@ Support GIF temporarily only support the network image to provide a set of URL c
 Support the long press to save the image to the album, support the horizontal screen view pictures, view long. Click on the image to zoom in and out to do animation. <br>
 Layout automatically according to the size of the screen layout support horizontal screen browsing. <br>
 The entire module in order to complete the CollectionView control only need to show where you can not need to manage the addSubview controller, convenient and simple.<br>
+Open a config.h configuration header file, a lot of styles can be modified, the data can be directly modified here, no need to go deep into the code to make changes.<br>
 Will continue to support local image details, such as. <br>
 <br>
 <br>
@@ -28,11 +30,6 @@ Will continue to support local image details, such as. <br>
 ##Matters needing attention:
 Because this project needs to be used to some other third parties, namely "Masonry", "SDWebImage", "MBProgressHUD". Here I also put these third parties into the Demo folder in the Libary folder. <br>
 If your original program, and did not use these third party, then you only need Libary folder into the program together with you. If these third parties use your original program, then there is no need to drag the third party into the program, just into the ZYPhotoBrowser folder.<br>
-<br>
-<br>
-因为下载文件包含介绍图片，所以下载包比较大，大概23M左右。
-<br>
-Because the download file contains the introduction of the picture, so the download package is relatively large, about 23M
 <br>
 <br>
 <br>
@@ -64,18 +61,32 @@ photoView.photoModelArray = photoModelArr;
 <br>
 <br>
 详细展示
-![](https://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/1.gif "详细展示")
+<br>
+![](http://wx3.sinaimg.cn/mw690/7ef5f86agy1fcpy4dt951g20dc0hs4qu.gif "详细展示")
+<br>
+详细展示
+<br>
+![](http://wx1.sinaimg.cn/mw690/7ef5f86agy1fcpy3oy2urg20dc0hshe0.gif "详细展示")
+<br>
+横屏展示
+<br>
+![](http://wx4.sinaimg.cn/mw690/7ef5f86agy1fcpy408946g20dc0hsb2h.gif "横屏展示")
 <br>
 保存图片时的展示
-![](https://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/2.gif "保存图片展示")
+<br>
+![](http://wx4.sinaimg.cn/mw690/7ef5f86agy1fcpy45vqi5g20dc0hsqv9.gif "保存图片展示")
 <br>
 4张图片时的布局展示
-![](https://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/3.png "4张图片的布局")
+<br>
+![](http://wx4.sinaimg.cn/mw690/7ef5f86agy1fcpy2qfi5jj20yi1pce17.jpg "4张图片的布局")
 <br>
 单张图片时的布局展示
-![](https://github.com/ZhiYongHuangOne/ZYPhotoBrowser/raw/master/photo/4.png "单张图片的布局")
-
-
+<br>
+![](http://wx2.sinaimg.cn/mw690/7ef5f86agy1fcpy2vbtajj20yi1pc7wh.jpg "单张图片的布局")
+<br>
+config配置文件展示
+<br>
+![](http://wx4.sinaimg.cn/mw690/7ef5f86agy1fcpy2sr9cqj20uw0lftfw.jpg "config配置文件")
 
 
 
