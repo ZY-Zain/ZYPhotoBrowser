@@ -62,31 +62,43 @@ photoView.photoModelArray = photoModelArr;
 <br>
 详细展示
 <br>
-![](http://wx3.sinaimg.cn/mw690/7ef5f86agy1fcpy4dt951g20dc0hs4qu.gif "详细展示")
+![img](http://wx3.sinaimg.cn/mw690/7ef5f86agy1fcpy4dt951g20dc0hs4qu.gif "详细展示")
+<br>
+<br>
 <br>
 详细展示
 <br>
-![](http://wx1.sinaimg.cn/mw690/7ef5f86agy1fcpy3oy2urg20dc0hshe0.gif "详细展示")
+![img](http://wx1.sinaimg.cn/mw690/7ef5f86agy1fcpy3oy2urg20dc0hshe0.gif "详细展示")
+<br>
+<br>
 <br>
 横屏展示
 <br>
-![](http://wx4.sinaimg.cn/mw690/7ef5f86agy1fcpy408946g20dc0hsb2h.gif "横屏展示")
+![img](http://wx4.sinaimg.cn/mw690/7ef5f86agy1fcpy408946g20dc0hsb2h.gif "横屏展示")
+<br>
+<br>
 <br>
 保存图片时的展示
 <br>
-![](http://wx4.sinaimg.cn/mw690/7ef5f86agy1fcpy45vqi5g20dc0hsqv9.gif "保存图片展示")
+![img](http://wx4.sinaimg.cn/mw690/7ef5f86agy1fcpy45vqi5g20dc0hsqv9.gif "保存图片展示")
+<br>
+<br>
 <br>
 4张图片时的布局展示
 <br>
-![](http://wx4.sinaimg.cn/mw690/7ef5f86agy1fcpy2qfi5jj20yi1pce17.jpg "4张图片的布局")
+![img](http://wx4.sinaimg.cn/mw690/7ef5f86agy1fcpy2qfi5jj20yi1pce17.jpg "4张图片的布局")
+<br>
+<br>
 <br>
 单张图片时的布局展示
 <br>
-![](http://wx2.sinaimg.cn/mw690/7ef5f86agy1fcpy2vbtajj20yi1pc7wh.jpg "单张图片的布局")
+![img](http://wx2.sinaimg.cn/mw690/7ef5f86agy1fcpy2vbtajj20yi1pc7wh.jpg "单张图片的布局")
+<br>
+<br>
 <br>
 config配置文件展示
 <br>
-![](http://wx4.sinaimg.cn/mw690/7ef5f86agy1fcpy2sr9cqj20uw0lftfw.jpg "config配置文件")
+![img](http://wx4.sinaimg.cn/mw690/7ef5f86agy1fcpy2sr9cqj20uw0lftfw.jpg "config配置文件")
 
 
 
