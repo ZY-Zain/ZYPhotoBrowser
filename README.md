@@ -66,21 +66,15 @@ photoView.photoModelArray = photoModelArr;
 <br>
 <br>
 <br>
-详细展示
-<br>
-![img](http://wx1.sinaimg.cn/mw690/7ef5f86agy1fcpy3oy2urg20dc0hshe0.gif "详细展示")
-<br>
-<br>
-<br>
 横屏展示
 <br>
-![img](http://wx4.sinaimg.cn/mw690/7ef5f86agy1fcpy408946g20dc0hsb2h.gif "横屏展示")
+![img](http://wx4.sinaimg.cn/mw690/7ef5f86agy1fcpztaroj3g20ag0a0u0x.gif "横屏展示")
 <br>
 <br>
 <br>
 保存图片时的展示
 <br>
-![img](http://wx4.sinaimg.cn/mw690/7ef5f86agy1fcpy45vqi5g20dc0hsqv9.gif "保存图片展示")
+![img](http://wx3.sinaimg.cn/mw690/7ef5f86agy1fcpzwj3zw4g205k0a01kx.gif "保存图片展示")
 <br>
 <br>
 <br>
