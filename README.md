@@ -63,8 +63,6 @@ NSArray <ZYPhotoModel *> *photoModelArr = @[photoModel];
 photoView.photoModelArray = photoModelArr;
 ```
 
-<br>
-<br>
 ##### 详细展示
 ![img](http://wx1.sinaimg.cn/mw690/7ef5f86agy1fcpzoeksb1g205k0a0e81.gif "详细展示")
 
