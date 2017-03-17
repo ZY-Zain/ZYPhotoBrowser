@@ -1,7 +1,7 @@
-#智勇第三方 ZYPhotoBrowser 相册浏览器 
-==== 
-##简介
-----
+# 智勇第三方 ZYPhotoBrowser 相册浏览器 
+
+## 简介
+
 5句代码 即可完成此第三方的接入。<br>
 支持GIF 暂时只支持网络图片  提供一组URL 即可自动完成所有操作。<br> 
 支持长按保存图片到相册,支持横屏查看图片，查看长图。点击图片时的放大、缩小都做了动画效果。<br>
@@ -10,8 +10,8 @@
 公开了一个config.h配置头文件，很多可以修改的样式、数据都可以直接在这里修改，无需深入代码来做修改。<br>
 以后会陆续支持 本地图片 图片详情信息等<br>
 <br>
-##Introduction:
-----
+## Introduction:
+
 5 code to complete the access of the third party.<br>
 Support GIF temporarily only support the network image to provide a set of URL can automatically complete all operations.<br> 
 Support the long press to save the image to the album, support the horizontal screen view pictures, view long. Click on the image to zoom in and out to do animation. <br>
@@ -22,12 +22,12 @@ Will continue to support local image details, such as. <br>
 <br>
 <br>
 
-##注意事项：
-----
+## 注意事项：
+
 因为此项目中需要使用到一些另外的第三方，分别是"Masonry"、"SDWebImage"、"MBProgressHUD"。这里我也将这些第三方放入了Demo文件夹中的Libary文件夹中。<br>
 如果你原有的程序中，并没有使用到这些第三方，那么只需要连同Libary文件夹一起拖入程序中即可。如果你原有的程序中使用了这些第三方，那么就无需拖动这些第三方进程序中，只需拖入ZYPhotoBrowser文件夹即可。<br>
 <br>
-##Matters needing attention:
+## Matters needing attention:
 Because this project needs to be used to some other third parties, namely "Masonry", "SDWebImage", "MBProgressHUD". Here I also put these third parties into the Demo folder in the Libary folder. <br>
 If your original program, and did not use these third party, then you only need Libary folder into the program together with you. If these third parties use your original program, then there is no need to drag the third party into the program, just into the ZYPhotoBrowser folder.<br>
 <br>
@@ -39,8 +39,8 @@ If it feels good for you, remember to click on the stars, and your star is my po
 <br>
 <br>
 <br>
-##快速接入/Quick access
-----
+## 快速接入/Quick access
+
 
 ```Objective-C
 //引入头文件
